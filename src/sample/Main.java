@@ -38,6 +38,7 @@ public class Main extends Application {
         //pane.getChildren().addAll(TopRoadBound());
         //pane.getChildren().addAll(BottomRoadBound());
         pane.getChildren().addAll(Road());
+        pane.getChildren().addAll(LaneSeparator());
         pane.getChildren().addAll(lampPost());
         pane.getChildren().addAll(lampPost2());
         pane.getChildren().addAll(Tree1());
@@ -267,6 +268,56 @@ public class Main extends Application {
         Shape shape = Shape.subtract(arc, arc2);
         shape.setFill(Color.SANDYBROWN);
         return shape;
+    }
+
+    // Creates lines that separate the lanes.
+    // Uses: 4 Lines
+    public Group LaneSeparator() {
+        Group separators = new Group();
+
+
+        Line line = new Line();
+        line.setStrokeType(StrokeType.CENTERED);
+        line.setStroke(Color.WHITE);
+        line.setStrokeWidth(4);
+        line.setRotate(-5);
+        line.setStartX(50);
+        line.setStartY(380);
+        line.setEndX(150);
+        line.setEndY(380);
+
+        Line line2 = new Line();
+        line2.setStrokeType(StrokeType.CENTERED);
+        line2.setStroke(Color.WHITE);
+        line2.setStrokeWidth(4);
+        line2.setRotate(-2);
+        line2.setStartX(200);
+        line2.setStartY(373);
+        line2.setEndX(300);
+        line2.setEndY(373);
+
+        Line line3 = new Line();
+        line3.setStrokeType(StrokeType.CENTERED);
+        line3.setStroke(Color.WHITE);
+        line3.setStrokeWidth(4);
+        line3.setRotate(2);
+        line3.setStartX(400);
+        line3.setStartY(373);
+        line3.setEndX(500);
+        line3.setEndY(373);
+
+        Line line4 = new Line();
+        line4.setStrokeType(StrokeType.CENTERED);
+        line4.setStroke(Color.WHITE);
+        line4.setStrokeWidth(4);
+        line4.setRotate(6);
+        line4.setStartX(600);
+        line4.setStartY(390);
+        line4.setEndX(700);
+        line4.setEndY(390);
+
+        separators.getChildren().addAll(line, line2, line3, line4);
+        return separators;
     }
 
     // Creates a tree on the bottom left corner.
