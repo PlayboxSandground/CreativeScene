@@ -35,13 +35,7 @@ public class Main extends Application {
         //pane.getChildren().addAll(Trunk());
         pane.getChildren().addAll(lampPost());
         pane.getChildren().addAll(setMoon());
-        pane.getChildren().addAll(PostofLamp());
-        pane.getChildren().addAll(resemblingLamp());
-        pane.getChildren().addAll(resemblingLamp2());
-        pane.getChildren().addAll(middleOfLampPost());
-        pane.getChildren().addAll(nearBottomofLampPost());
-        pane.getChildren().addAll(rayOfLight());
-
+        //pane.getChildren().addAll(TopRoadBound());
 
 
         primaryStage.setTitle("Race Track");
@@ -57,7 +51,7 @@ public class Main extends Application {
 
     public Rectangle setBackground() {
         //creating a rectangle
-        Rectangle r = new Rectangle(0, 90, 680, 700);
+        Rectangle r = new Rectangle(0, 230, 680, 700);
         r.setFill(GRAY);
         return r;
 
@@ -76,7 +70,7 @@ public class Main extends Application {
 
     public Arc setArc() {
         //creating an arc
-        Arc arc = new Arc(330, 170, 490, 110, 40, 239); // Create an arc
+        Arc arc = new Arc(330, 310, 490, 110, 40, 239); // Create an arc
         //arc.setOpacity(0.8);
         arc.setStroke(Color.BLACK);
         arc.setFill(null);
@@ -129,7 +123,7 @@ public class Main extends Application {
     // Lamp Post
     public Group lampPost() {
         Group lampPost = new Group();
-        lampPost.setTranslateY(-100);
+        lampPost.getChildren().addAll(PostofLamp(), resemblingLamp(), resemblingLamp2(), middleOfLampPost(), nearBottomofLampPost(), rayOfLight());
         return lampPost;
 
     }
@@ -198,6 +192,13 @@ public class Main extends Application {
                 530.0, 115.0});
         return ray;
 
+    }
+
+    public Arc TopRoadBound() {
+        Arc arc = new Arc(330, 310, 490, 5, 0, 180); // Create an arc
+        arc.setType(ArcType.OPEN);
+        arc.setFill(Color.BLACK);
+        return arc;
     }
 }
 
