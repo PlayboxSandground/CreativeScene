@@ -129,6 +129,7 @@ public class Main extends Application {
     // Lamp Post
     public Group lampPost() {
         Group lampPost = new Group();
+        lampPost.setTranslateY(-100);
         return lampPost;
 
     }
