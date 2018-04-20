@@ -27,6 +27,7 @@ public class Main extends Application {
         //adding the following classes to the scene
 
         pane.getChildren().addAll(setStarryImage());
+        pane.getChildren().addAll(Constellation());
         pane.getChildren().addAll(setBackgroundArc());
         /* pane.getChildren().addAll(ShowPolygon());*/
         pane.getChildren().addAll(setBackground());
@@ -369,6 +370,51 @@ public class Main extends Application {
         shape.setTranslateY(-30);
 
         return shape;
+    }
+
+    public Group Constellation() {
+        Group constellation = new Group();
+
+        // Bottom part of constellation
+        Polyline polyLine = new Polyline();
+        polyLine.setStrokeType(StrokeType.CENTERED);
+        polyLine.setStrokeWidth(3);
+        polyLine.setStroke(Color.WHITE);
+        polyLine.getPoints().addAll(new Double[] {200.0, 100.0,
+                                                    275.0, 110.0,
+                                                    325.0, 90.0,
+                                                    400.0, 80.0});
+
+        // Top part of constellation
+        Polyline polyLine2 = new Polyline();
+        polyLine2.setStrokeType(StrokeType.CENTERED);
+        polyLine2.setStrokeWidth(3);
+        polyLine2.setStroke(Color.WHITE);
+        polyLine2.getPoints().addAll(new Double[] {200.0, 100.0,
+                275.0, 60.0,
+                325.0, 90.0});
+
+        constellation.getChildren().addAll(polyLine, polyLine2);
+
+        // Add stars to the points of the constellation
+        for (int i = 0; i < polyLine.getPoints().size(); i += 2) {
+            Circle star = new Circle();
+            star.setFill(Color.WHITE);
+            star.setRadius(5);
+            star.setCenterX(polyLine.getPoints().get(i));
+            star.setCenterY(polyLine.getPoints().get(i + 1));
+            constellation.getChildren().add(star);
+        }
+
+        // The uppermost star on the constellation
+        Circle star = new Circle();
+        star.setFill(Color.WHITE);
+        star.setRadius(5);
+        star.setCenterX(275);
+        star.setCenterY(60);
+        constellation.getChildren().add(star);
+
+        return constellation;
     }
 }
 
