@@ -39,6 +39,7 @@ public class Main extends Application {
         //pane.getChildren().addAll(BottomRoadBound());
         pane.getChildren().addAll(Road());
         pane.getChildren().addAll(lampPost());
+        pane.getChildren().addAll(lampPost2());
         pane.getChildren().addAll(Tree1());
 
         primaryStage.setTitle("Race Track");
@@ -128,7 +129,7 @@ public class Main extends Application {
         return line;
     }
 
-    // Creates a lamp post.
+    // Creates a lamp post on the upper right.
     // Uses: 5 rectangles for the post and layers, and a Polygon
     // for the ray of light coming from the lamp.
     public Group lampPost() {
@@ -188,7 +189,70 @@ public class Main extends Application {
 
         lampPost.getChildren().addAll(rect1, rect2, rect3, rect4, rect5, ray);
         return lampPost;
+    }
 
+    // Creates a lamp post on the lower left.
+    // Uses: 5 rectangles for the post and layers, and a Polygon
+    // for the ray of light coming from the lamp.
+    public Group lampPost2() {
+        Group lampPost = new Group();
+
+        // Post of the lamp
+        Rectangle rect1 = new Rectangle();
+        rect1.setFill(Color.BLACK);
+        rect1.setWidth(10.0f);
+        rect1.setHeight(200.0f);
+        rect1.setX(500);
+        rect1.setY(115);
+
+        // Top layer of the lamp
+        Rectangle rect2 = new Rectangle();
+        rect2.setFill(Color.BLACK);
+        rect2.setWidth(50.0f);
+        rect2.setHeight(5.0f);
+        rect2.setX(480);
+        rect2.setY(115);
+
+        // Second layer of the lamp
+        Rectangle rect3 = new Rectangle();
+        rect3.setFill(Color.BLACK);
+        rect3.setWidth(50.0f);
+        rect3.setHeight(5.0f);
+        rect3.setX(480);
+        rect3.setY(120);
+        rect3.setRotate(-15.0f);
+
+        // Middle of lamp post
+        Rectangle rect4 = new Rectangle();
+        rect4.setFill(Color.BLACK);
+        rect4.setWidth(70.0f);
+        rect4.setHeight(7.0f);
+        rect4.setX(470);
+        rect4.setY(195);
+        rect4.setRotate(30.0f);
+
+        // Near bottom of lamp post
+        Rectangle rect5 = new Rectangle();
+        rect5.setFill(Color.BLACK);
+        rect5.setWidth(50.0f);
+        rect5.setHeight(5.0f);
+        rect5.setX(480);
+        rect5.setY(245);
+        rect5.setRotate(-10.0f);
+
+        // Ray of light coming from the lamp
+        Polygon ray = new Polygon();
+        ray.setFill(Color.rgb(240, 224, 85));
+        ray.setOpacity(0.4);
+        ray.getPoints().addAll(new Double[]{480.0, 115.0,
+                440.0, 280.0,
+                580.0, 280.0,
+                530.0, 115.0});
+
+        lampPost.getChildren().addAll(rect1, rect2, rect3, rect4, rect5, ray);
+        lampPost.setTranslateX(-400);
+        lampPost.setTranslateY(125);
+        return lampPost;
     }
 
     // Creates a road.
