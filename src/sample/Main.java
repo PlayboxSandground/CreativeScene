@@ -42,7 +42,7 @@ public class Main extends Application {
         pane.getChildren().addAll(LaneSeparator());
         pane.getChildren().addAll(lampPost());
         pane.getChildren().addAll(lampPost2());
-        pane.getChildren().addAll(Tree1());
+        pane.getChildren().addAll(Tree1(), Tree2(), Tree3(), Tree4());
 
         primaryStage.setTitle("Race Track");
         primaryStage.setScene(new Scene(pane, 650, 650));
@@ -344,6 +344,39 @@ public class Main extends Application {
         tree.getChildren().add(rect);
         tree.getChildren().add(leaves);
 
+        return tree;
+    }
+
+    // Creates a tree on the bottom right.
+    // Uses: Rectangle for the base of the tree,
+    // and Ellipse for the leaves.
+    public Group Tree2() {
+        Group tree = Tree1();
+
+        tree.setTranslateX(400);
+        tree.setTranslateY(-30);
+        return tree;
+    }
+
+    // Creates a tree on the right.
+    // Uses: Rectangle for the base of the tree,
+    // and Ellipse for the leaves.
+    public Group Tree3() {
+        Group tree = Tree1();
+
+        tree.setTranslateX(480);
+        tree.setTranslateY(-100);
+        return tree;
+    }
+
+    // Creates a tree near the middle (close to the river).
+    // Uses: Rectangle for the base of the tree,
+    // and Ellipse for the leaves.
+    public Group Tree4() {
+        Group tree = Tree1();
+
+        tree.setTranslateX(280);
+        tree.setTranslateY(-80);
         return tree;
     }
 
